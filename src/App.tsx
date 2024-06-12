@@ -1,12 +1,14 @@
 // src/App.tsx
 import React from 'react';
 import EmployeeDetails from './components/EmployeeDetails';
+import AddEmployee from './components/AddEmployee';
 
-const App: React.FC = () => {
+const App = () => {
   return(
     <>
     <EmployeeDetails/>
     <EmployeeDetails/>
+    <AddEmployee/>
     </>
   )
 }

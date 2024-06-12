@@ -30,6 +30,7 @@ class EmployeeService {
   }
 
   public createEmployee(employee: Employee) {
+    console.log("Create Employee Api")
     return this.httpService.post('/employees', employee);
   }
 

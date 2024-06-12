@@ -14,6 +14,10 @@ const initialState: EmployeeState = {
   error: null
 };
 
+
+
+
+
 const employeeSlice = createSlice({
   name: 'employees',
   initialState,
@@ -29,6 +33,18 @@ const employeeSlice = createSlice({
     fetchEmployeesFailure(state, action: PayloadAction<string>) {
       state.loading = false;
       state.error = action.payload;
+    },
+    addEmployeeRequest(state) {
+      state.loading = true;
+      state.error = null;
+    },
+    addEmployeeSuccess(state, action: PayloadAction<Employee>) {
+      state.loading = false;
+      state.data.push(action.payload);
+    },
+    addEmployeeFailure(state, action: PayloadAction<string>) {
+      state.loading = false;
+      state.error = action.payload;
     }
   }
 });
@@ -36,7 +52,10 @@ const employeeSlice = createSlice({
 export const {
   fetchEmployeesRequest,
   fetchEmployeesSuccess,
-  fetchEmployeesFailure
+  fetchEmployeesFailure,
+  addEmployeeSuccess,
+  addEmployeeFailure,
+  addEmployeeRequest
 } = employeeSlice.actions;
 
 export default employeeSlice.reducer;
